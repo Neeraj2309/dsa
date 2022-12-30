@@ -1,0 +1,39 @@
+public class Solution {
+    public int solve(int[] A) {
+
+        int max = A[0];
+        int len = A.length;
+        int secondmax = 0;
+        //to handle case of zero element or single elemen
+        if(len == 0 || len == 1){
+            return -1;
+        }
+
+        for(int i=0;i<len;i++){
+            if(A[i]>max){
+                max=A[i];
+            }
+        }
+            int div = 1;
+            int sum = 0;
+
+        for(int i=0;i<len;i++){
+              if(A[i]>secondmax && A[i]!=max && A[i]<max) {
+				secondmax=A[i];
+		    }
+
+            sum = sum + A[i];
+            
+
+        }
+
+//to handle case when array is like [44,44,44,44,44,44]
+        div = sum/len;
+
+            if(div==A[0]){
+                return -1;
+            }
+      //end 
+        return secondmax;
+    }
+}
