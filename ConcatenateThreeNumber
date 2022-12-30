@@ -1,0 +1,27 @@
+public class Solution {
+    public int solve(int A, int B, int C) {
+
+        int min1 = 0;
+        int mid = 0;
+        int max1 = 0;
+
+         min1 = Math.min(C,(Math.min(A, B)));
+         max1 = Math.max(C,(Math.max(A, B)));
+         mid =  middleNum(A,B,C);
+   
+    return min1*10000+mid*100+max1*1;
+
+    }
+
+    public int middleNum(int a, int b, int c){
+
+        int x = a-b;
+        int y = a-c;
+        int z = b-c;
+
+        if(x*z>0) return b;
+        if(x*y>0) return c;
+
+        return a;
+    }
+}
